@@ -50,16 +50,16 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const output = `#### Estado de Validación de Infraestructura (TP11B)
-            * **Formato HCL (\`terraform fmt\`):** \`\${{ steps.fmt.outcome }}\`
-            * **Inicialización (\`terraform init\`):** \`\${{ steps.init.outcome }}\`
-            * **Validación de Código (\`terraform validate\`):** \`\${{ steps.validate.outcome }}\`
-            * **Plan de Ejecución (\`terraform plan\`):** \`\${{ steps.plan.outcome }}\`
+            * **Formato HCL (\`terraform fmt\`):** \`${{ steps.fmt.outcome }}\`
+            * **Inicialización (\`terraform init\`):** \`${{ steps.init.outcome }}\`
+            * **Validación de Código (\`terraform validate\`):** \`${{ steps.validate.outcome }}\`
+            * **Plan de Ejecución (\`terraform plan\`):** \`${{ steps.plan.outcome }}\`
             <details><summary>Ver Resumen del Terraform Plan</summary>
             \`\`\`hcl
-            \${{ steps.show_plan.outputs.plan_text }}
+            ${{ steps.show_plan.outputs.plan_text }}
             \`\`\`
             </details>
-            *Autor: @${{ github.actor }} | Commit: \`\${{ github.sha }}\`*`;
+            *Autor: @${{ github.actor }} | Commit: \`${{ github.sha }}\`*`;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
